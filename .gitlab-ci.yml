@@ -1,0 +1,72 @@
+test:
+    image:
+        name: pretix/ci-image
+    before_script:
+        - pip install -U pip uv
+        - uv pip install --system -U wheel setuptools pytest pytest-django coverage
+        - uv pip install --system -U git+https://github.com/pretix/pretix.git@master#egg=pretix
+    script:
+        - uv pip install --system -e .
+        - make
+        - coverage run -m pytest tests
+        - coverage report
+    variables:
+        PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+        XDG_CACHE_HOME: $CI_PROJECT_DIR/.cache
+    cache:
+        key:
+            files:
+                - pyproject.toml
+                - setup.py
+        paths:
+            - .cache
+style:
+    image:
+        name: pretix/ci-image
+    before_script:
+        - pip install -U pip uv
+        - uv pip install --system -U wheel setuptools isort black flake8 check-manifest
+        - uv pip install --system -U git+https://github.com/pretix/pretix.git@master#egg=pretix
+    script:
+        - uv pip install --system -e .
+        - black --check .
+        - isort -c --gitignore .
+        - flake8 --extend-exclude .cache .
+        - check-manifest --ignore .cache .
+    variables:
+        PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+        XDG_CACHE_HOME: $CI_PROJECT_DIR/.cache
+    cache:
+        key:
+            files:
+                - pyproject.toml
+                - setup.py
+        paths:
+            - .cache
+pypi:
+    image:
+        name: pretix/ci-image
+    before_script:
+        - cat $PYPIRC > ~/.pypirc
+        - pip install -U pip uv
+        - uv pip install --system -U wheel setuptools twine build pretix-plugin-build check-manifest
+    script:
+        - python -m build
+        - check-manifest .
+        - twine check dist/*
+        - twine upload dist/*
+    variables:
+        PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+        XDG_CACHE_HOME: $CI_PROJECT_DIR/.cache
+    cache:
+        key:
+            files:
+                - pyproject.toml
+                - setup.py
+        paths:
+            - .cache
+    only:
+        - pypi
+    artifacts:
+        paths:
+            - dist/

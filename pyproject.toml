@@ -1,0 +1,42 @@
+[project]
+name = "pretix-dbevent"
+dynamic = ["version"]
+description = "Advertise the DB Event Offers for discounted and sustainable train travel to your attendees"
+readme = "README.rst"
+license = {text = "Apache"}
+keywords = ["pretix"]
+authors = [
+    {name = "pretix team", email = "support@pretix.eu"},
+]
+maintainers = [
+    {name = "pretix team", email = "support@pretix.eu"},
+]
+
+dependencies = [
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_dbevent = "pretix_dbevent:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "https://github.com/pretix/pretix-dbevent/"
+repository = "https://github.com/pretix/pretix-dbevent/"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_dbevent.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false

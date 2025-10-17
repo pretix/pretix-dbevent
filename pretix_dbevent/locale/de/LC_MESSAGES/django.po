@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-17 11:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: pretix_dbevent/apps.py:17
+msgid "DB Event Offers"
+msgstr "DB Event-Angebote"
+
+#: pretix_dbevent/apps.py:20
+msgid ""
+"Advertise the DB Event Offers for discounted and sustainable train travel to "
+"your attendees"
+msgstr ""
+"Bieten Sie die mit den DB Event-Angeboten Ihren Teilnehmenden eine günstige und "
+"nachhaltige Anreise an"
+
+#: pretix_dbevent/forms.py:13
+msgctxt "dbevent"
+msgid "Display DB Event Offer if this product is purchased"
+msgstr "DB Event-Angebote anzeigen, wenn dieses Produkt gekauft wird"
+
+#: pretix_dbevent/forms.py:42
+msgid "DB Event ID"
+msgstr "DB Event-ID"
+
+#: pretix_dbevent/forms.py:44
+msgid ""
+"The ID of your event as displayed in the DB Event Offers portal. If your URL "
+"is <code>https://www.veranstaltungsticket-bahn.de/?event=33148&language=de</"
+"code>, or <code>https://www.eventanreise-bahn.de/de/events/33148</code>, "
+"please enter <code>33148</code>."
+msgstr ""
+"Die ID der Veranstaltung wird im DB Event Angebot Portal angezeigt. Wenn "
+"die URL <code>https://www.veranstaltungsticket-bahn.de/?event=33148&language=de"
+"</code>, or <code>https://www.eventanreise-bahn.de/de/events/33148</code> lautet, "
+"geben Sie bitte <code>33148</code> an."
+
+#: pretix_dbevent/forms.py:63
+msgid "Invalid DB Event ID"
+msgstr "Ungültige DB Event-ID"
+
+#: pretix_dbevent/models.py:12
+msgid "Display DB Event Offer if this product is purchased"
+msgstr "DB Event Angebot anzeigen, wenn dieses Produkt gekauft wird"
+
+#: pretix_dbevent/signals.py:26
+msgid "DB Event Discount"
+msgstr "DB Event-Angebote"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:10
+msgid "Always a good move: Travel by train to your event"
+msgstr "Ein guter Zug für Ihre Anreise: Die Event-Angebote der Deutschen Bahn"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:15
+#, python-format
+msgid ""
+"For <em>%(event)s</em> participants exclusively: Travel comfortable, "
+"sustainable and affordable throughout Germany by train."
+msgstr ""
+"Exklusiv für <em>%(event)s</em> Teilnehmende: Gestalten Sie Ihre Event-"
+"Anreise deutschlandweit komfortable, nachhaltig und günstig."
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:21
+msgid "DB event offers provide you with several benefits:"
+msgstr "Mit den DB Event-Angeboten profitieren Sie gleich mehrfach:"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:25
+msgid "Attractive prices: low entry price from just EUR 16.19"
+msgstr "Attraktive Preisvorteile: Günstiger Einstiegspreis bereits ab 16,19€"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:26
+msgid "Flexible combination: apply additional BahnCard discount"
+msgstr "Flexibel kombinieren: Profitieren Sie vom zusätzlichen BahnCard-Rabatt"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:28
+#, python-format
+msgid ""
+"Sustainability guaranteed: arrival and departure on Deutsche Bahn trains "
+"using 100%% renewable power"
+msgstr ""
+"Nachhaltigkeit garantiert: An- und Abreise in den Zügen der Deutschen Bahn "
+"mit 100% Ökostrom"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:30
+msgid "Use your time effectively: work or relax on your journey"
+msgstr "Zeit effektiv nutzen: Arbeiten oder Entspannen Sie auf Ihrer Reise"
+
+#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:34
+#, python-format
+msgid ""
+"\n"
+"                    <a %(a_attr)s>Book online now</a>, discover all DB event "
+"offers for your preferred route and secure\n"
+"                    your discounted ticket. <a %(tchref)s>Terms and "
+"Conditions apply</a>.\n"
+"                "
+msgstr ""
+"\n"
+"                    <a %(a_attr)s>Buchen Sie jetzt online</a>, sehen Sie alle "
+"DB Event-Angebote auf Ihrer Wunschstrecke\n"
+"                    und sichern Sie sich Ihr günstiges Ticket. <a %(tchref)s>Weitere "
+"Informationen und Bedingungen</a>.\n"
+"                "
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:5
+msgid "DB Event Offer"
+msgstr "DB Event-Angebot"
+
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:7
+msgid ""
+"By cooperating with Deutsche Bahn (DB), you can make your events more "
+"sustainable and offer your attendees at the same time a significant discount "
+"on their long distance train travel."
+msgstr ""
+"Durch eine Kooperation mit der Deutschen Bahn (DB) können Sie Ihre "
+"Veranstaltungen noch nachhaltiger machen und Ihren Teilnehmenden "
+"gleichzeitig einen signifikanten Rabatt auf Zugtickets des Fernverkehrs "
+"anbieten."
+
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:13
+#, python-format
+msgid ""
+"To get started, please visit <a href=\"%(dbeventdiscount)s\" "
+"target=\"_blank\">%(dbeventdiscount)s</a> for more information and <a "
+"href=\"%(dbeventsignup)s\" target=\"_blank\">sign up on the DB MICE portal</"
+"a> to request your participation."
+msgstr ""
+"Um am DB Event-Angebot teilzunehmen, besuchen Sie bitte <a "
+"href=\"%(dbeventdiscount)s\" target=\"_blank\">%(dbeventdiscount)s</a> und <a "
+"href=\"%(dbeventsignup)s\" target=\"_blank\">melden Sie sich im DB MICE portal"
+"</a> an."
+
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:20
+msgid ""
+"Please remember, that you'll need to mark products that are eligible to "
+"receive the DB Event Offer explicitly by activating the corresponding "
+"checkbox within the product's \"Additional Settings\"-tab."
+msgstr ""
+"Bitte bedenken Sie, dass Produkte explizit freigeschaltet werden müssen, um "
+"das DB Event-Angebot zu bewerben. Dies geschieht durch das Aktivieren der "
+"entsprechenden Option im \"Zusätzliche Einstellungen\"-Tab des jeweiligen Produktes."
+
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:29
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: pretix_dbevent/templates/pretix_dbevent/settings.html:35
+msgid "Save"
+msgstr "Speichern"

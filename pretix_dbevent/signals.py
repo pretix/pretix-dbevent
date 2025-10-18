@@ -23,7 +23,7 @@ def nav_event_settings(sender, request, **kwargs):
         return []
     return [
         {
-            "label": _("DB Event Discount"),
+            "label": _("DB Event Offer"),
             "icon": "train",
             "url": reverse(
                 "plugins:pretix_dbevent:settings",

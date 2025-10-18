@@ -1,7 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _, pgettext_lazy
-from pretix.base.forms import SettingsForm
+from i18nfield.forms import I18nFormField
+
+from pretix.base.forms import SettingsForm, PlaceholderValidator, I18nMarkdownTextarea, I18nMarkdownTextInput
 from urllib.parse import parse_qs, urlparse
 
 from .models import ItemDBEventConfig
@@ -47,6 +49,35 @@ class DBEventSettingsForm(SettingsForm):
             "<code>33148</code>."
         ),
         required=False,
+    )
+
+    dbevent_override_texts = forms.BooleanField(
+        label=_("Override default texts"),
+        required=False,
+    )
+
+    dbevent_advertising_title = I18nFormField(
+        label=_('Title'),
+        required=False,
+        widget=I18nMarkdownTextInput,
+        widget_kwargs={
+            "attrs": {
+                "data-display-dependency": "#id_dbevent_override_texts",
+            },
+        },
+    )
+
+    dbevent_advertising_content = I18nFormField(
+        label=_('Content'),
+        required=False,
+        widget=I18nMarkdownTextarea,
+        widget_kwargs={
+            "attrs": {
+                "data-display-dependency": "#id_dbevent_override_texts",
+            },
+        },
+        validators=[PlaceholderValidator(["{event}", "{booking_url}", "{faq_url}", "{event_id}"])],
+        help_text=_("Available placeholders: {event}, {booking_url}, {faq_url}, {event_id}"),
     )
 
     def clean_dbevent_event_id(self):

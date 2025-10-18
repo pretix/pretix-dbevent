@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 19:57+0200\n"
+"POT-Creation-Date: 2025-10-18 21:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,16 +29,16 @@ msgstr ""
 "Biete die mit den DB Event-Angeboten Teilnehmenden eine günstige und "
 "nachhaltige Anreise an"
 
-#: pretix_dbevent/forms.py:13
+#: pretix_dbevent/forms.py:15
 msgctxt "dbevent"
 msgid "Display DB Event Offer if this product is purchased"
 msgstr "DB Event-Angebote anzeigen, wenn dieses Produkt gekauft wird"
 
-#: pretix_dbevent/forms.py:42
+#: pretix_dbevent/forms.py:44
 msgid "DB Event ID"
 msgstr "DB Event-ID"
 
-#: pretix_dbevent/forms.py:44
+#: pretix_dbevent/forms.py:46
 msgid ""
 "The ID of your event as displayed in the DB Event Offers portal. If your URL "
 "is <code>https://www.veranstaltungsticket-bahn.de/?event=33148&language=de</"
@@ -50,7 +50,24 @@ msgstr ""
 "code>, or <code>https://www.eventanreise-bahn.de/de/events/33148</code> "
 "lautet, gebe bitte <code>33148</code> an."
 
-#: pretix_dbevent/forms.py:63
+#: pretix_dbevent/forms.py:55
+msgid "Override default texts"
+msgstr "Standard-Texte überschreiben"
+
+#: pretix_dbevent/forms.py:60
+msgid "Title"
+msgstr "Titel"
+
+#: pretix_dbevent/forms.py:71
+msgid "Content"
+msgstr "Inhalt"
+
+#: pretix_dbevent/forms.py:80
+#, python-brace-format
+msgid "Available placeholders: {event}, {booking_url}, {faq_url}, {event_id}"
+msgstr "Verfügbare Platzhalter: {event}, {booking_url}, {faq_url}, {event_id}"
+
+#: pretix_dbevent/forms.py:94
 msgid "Invalid DB Event ID"
 msgstr "Ungültige DB Event-ID"
 
@@ -58,65 +75,47 @@ msgstr "Ungültige DB Event-ID"
 msgid "Display DB Event Offer if this product is purchased"
 msgstr "DB Event Angebot anzeigen, wenn dieses Produkt gekauft wird"
 
-#: pretix_dbevent/signals.py:26
+#: pretix_dbevent/signals.py:28
 #: pretix_dbevent/templates/pretix_dbevent/settings.html:5
 msgid "DB Event Offer"
 msgstr "DB Event-Angebot"
 
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:10
+#: pretix_dbevent/signals.py:114
 msgid "Always a good move: Travel by train to your event"
 msgstr "Ein guter Zug für die Anreise: Die Event-Angebote der Deutschen Bahn"
 
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:15
-#, python-format
+#: pretix_dbevent/signals.py:117
+#, python-format, python-brace-format
 msgid ""
-"For <em>%(event)s</em> participants exclusively: Travel comfortable, "
-"sustainable and affordable throughout Germany by train."
-msgstr ""
-"Exklusiv für <em>%(event)s</em> Teilnehmende: Gestalte Deine Event-Anreise "
-"deutschlandweit komfortable, nachhaltig und günstig."
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:21
-msgid "DB event offers provide you with several benefits:"
-msgstr "Mit den DB Event-Angeboten profitierst Du gleich mehrfach:"
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:25
-msgid "Attractive prices: low entry price from just EUR 16.19"
-msgstr "Attraktive Preisvorteile: Günstiger Einstiegspreis bereits ab 16,19€"
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:26
-msgid "Flexible combination: apply additional BahnCard discount"
-msgstr "Flexibel kombinieren: Profitiere vom zusätzlichen BahnCard-Rabatt"
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:28
-#, python-format
-msgid ""
-"Sustainability guaranteed: arrival and departure on Deutsche Bahn trains "
-"using 100%% renewable power"
-msgstr ""
-"Nachhaltigkeit garantiert: An- und Abreise in den Zügen der Deutschen Bahn "
-"mit 100%% Ökostrom"
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:30
-msgid "Use your time effectively: work or relax on your journey"
-msgstr "Zeit effektiv nutzen: Arbeite oder Entspanne auf Deiner Reise"
-
-#: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:34
-#, python-format
-msgid ""
+"For *{event}* participants exclusively: Travel comfortable, sustainable and "
+"affordable throughout Germany by train.\n"
 "\n"
-"                    <a %(a_attr)s>Book online now</a>, discover all DB event "
-"offers for your preferred route and secure\n"
-"                    your discounted ticket. <a %(tchref)s>Terms and "
-"Conditions apply</a>.\n"
-"                "
-msgstr ""
+"DB event offers provide you with several benefits:\n"
 "\n"
-"                    <a %(a_attr)s>Buche jetzt online</a>, sehe alle DB Event-"
-"Angebote auf Deiner Wunschstrecke\n"
-"                    und sichere dir dein günstiges Ticket. <a "
-"%(tchref)s>Weitere Informationen und Bedingungen</a>.\n"
-"                "
+"- Attractive prices: low entry price from just EUR 16.19\n"
+"- Flexible combination: apply additional BahnCard discount\n"
+"- Sustainability guaranteed: arrival and departure on Deutsche Bahn trains "
+"using 100% renewable power\n"
+"- Use your time effectively: work or relax on your journey\n"
+"\n"
+"[Book online now]({booking_url}), discover all DB event offers for your "
+"preferred route and secure your discounted ticket. [Terms and Conditions "
+"apply]({faq_url})"
+msgstr ""
+"Exklusiv für *{event}* Teilnehmende: Gestalte Deine Event-Anreise "
+"deutschlandweit komfortable, nachhaltig und günstig.\n"
+"\n"
+"Mit den DB Event-Angeboten profitierst Du gleich mehrfach:\n"
+"\n"
+"- Attraktive Preisvorteile: Günstiger Einstiegspreis bereits ab 16,19€\n"
+"- Flexibel kombinieren: Profitiere vom zusätzlichen BahnCard-Rabatt\n"
+"- Nachhaltigkeit garantiert: An- und Abreise in den Zügen der Deutschen Bahn "
+"mit 100% Ökostrom\n"
+"- Zeit effektiv nutzen: Arbeite oder Entspanne auf Deiner Reise\n"
+"\n"
+"[Buche jetzt online]({booking_url}), sehe alle DB Event-Angebote auf Deiner "
+"Wunschstrecke und sichere dir dein günstiges Ticket. [Weitere Informationen "
+"und Bedingungen]({faq_url})"
 
 #: pretix_dbevent/templates/pretix_dbevent/settings.html:7
 msgid ""

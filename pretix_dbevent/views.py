@@ -19,3 +19,8 @@ class DBEventSettingsView(EventSettingsViewMixin, EventSettingsFormView):
                 "event": self.request.event.slug,
             },
         )
+
+    def form_success(self):
+        if not self.request.event.settings.dbevent_override_texts:
+            del self.request.event.settings.dbevent_advertising_title
+            del self.request.event.settings.dbevent_advertising_content

@@ -94,7 +94,7 @@ msgid ""
 "using 100%% renewable power"
 msgstr ""
 "Nachhaltigkeit garantiert: An- und Abreise in den Zügen der Deutschen Bahn "
-"mit 100% Ökostrom"
+"mit 100%% Ökostrom"
 
 #: pretix_dbevent/templates/pretix_dbevent/order_position_info.html:30
 msgid "Use your time effectively: work or relax on your journey"

@@ -4,7 +4,6 @@ from django.template.loader import get_template
 from django.urls import resolve, reverse
 from django.utils.translation import gettext_lazy as _, gettext_noop
 from i18nfield.strings import LazyI18nString
-
 from pretix.base.models import Event, Order
 from pretix.base.settings import settings_hierarkey
 from pretix.base.signals import event_copy_data, item_copy_data
@@ -83,9 +82,14 @@ def order_info(sender: Event, order: Order, request, **kwargs):
         return ""
 
     template = get_template("pretix_dbevent/order_position_info.html")
-    return template.render({
-        "dbevent_advertising_text": str(sender.settings.dbevent_advertising_content).format_map(dbevent_url_context(request)),
-    }, request)
+    return template.render(
+        {
+            "dbevent_advertising_text": str(
+                sender.settings.dbevent_advertising_content
+            ).format_map(dbevent_url_context(request)),
+        },
+        request,
+    )
 
 
 @receiver(position_info, dispatch_uid="dbevent_position_info")
@@ -97,9 +101,14 @@ def position_info(sender: Event, order: Order, position, request, **kwargs):
         return ""
 
     template = get_template("pretix_dbevent/order_position_info.html")
-    return template.render({
-        "dbevent_advertising_text": str(sender.settings.dbevent_advertising_content).format_map(dbevent_url_context(request)),
-    }, request)
+    return template.render(
+        {
+            "dbevent_advertising_text": str(
+                sender.settings.dbevent_advertising_content
+            ).format_map(dbevent_url_context(request)),
+        },
+        request,
+    )
 
 
 @receiver(html_head, dispatch_uid="dbevent_html_head")
@@ -110,20 +119,30 @@ def html_head_presale(sender, request=None, **kwargs):
 
 settings_hierarkey.add_default("dbevent_event_id", None, int)
 settings_hierarkey.add_default("dbevent_override_texts", False, bool)
-settings_hierarkey.add_default("dbevent_advertising_title", LazyI18nString.from_gettext(gettext_noop(
-    "Always a good move: Travel by train to your event"
-)), LazyI18nString)
-settings_hierarkey.add_default("dbevent_advertising_content", LazyI18nString.from_gettext(gettext_noop(
-    "For *{event}* participants exclusively: Travel comfortable, sustainable and affordable throughout "
-    "Germany by train.\n"
-    "\n"
-    "DB event offers provide you with several benefits:\n"
-    "\n"
-    "- Attractive prices: low entry price from just EUR 16.19\n"
-    "- Flexible combination: apply additional BahnCard discount\n"
-    "- Sustainability guaranteed: arrival and departure on Deutsche Bahn trains using 100% renewable power\n"
-    "- Use your time effectively: work or relax on your journey\n"
-    "\n"
-    "[Book online now]({booking_url}), discover all DB event offers for your preferred route and secure your "
-    "discounted ticket. [Terms and Conditions apply]({faq_url})"
-)), LazyI18nString)
+settings_hierarkey.add_default(
+    "dbevent_advertising_title",
+    LazyI18nString.from_gettext(
+        gettext_noop("Always a good move: Travel by train to your event")
+    ),
+    LazyI18nString,
+)
+settings_hierarkey.add_default(
+    "dbevent_advertising_content",
+    LazyI18nString.from_gettext(
+        gettext_noop(
+            "For *{event}* participants exclusively: Travel comfortable, sustainable and affordable throughout "
+            "Germany by train.\n"
+            "\n"
+            "DB event offers provide you with several benefits:\n"
+            "\n"
+            "- Attractive prices: low entry price from just EUR 16.19\n"
+            "- Flexible combination: apply additional BahnCard discount\n"
+            "- Sustainability guaranteed: arrival and departure on Deutsche Bahn trains using 100% renewable power\n"
+            "- Use your time effectively: work or relax on your journey\n"
+            "\n"
+            "[Book online now]({booking_url}), discover all DB event offers for your preferred route and secure your "
+            "discounted ticket. [Terms and Conditions apply]({faq_url})"
+        )
+    ),
+    LazyI18nString,
+)

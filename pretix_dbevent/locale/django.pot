@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-18 21:47+0200\n"
+"POT-Creation-Date: 2025-10-20 18:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,16 +27,16 @@ msgid ""
 "your attendees"
 msgstr ""
 
-#: pretix_dbevent/forms.py:15
+#: pretix_dbevent/forms.py:19
 msgctxt "dbevent"
 msgid "Display DB Event Offer if this product is purchased"
 msgstr ""
 
-#: pretix_dbevent/forms.py:44
+#: pretix_dbevent/forms.py:48
 msgid "DB Event ID"
 msgstr ""
 
-#: pretix_dbevent/forms.py:46
+#: pretix_dbevent/forms.py:50
 msgid ""
 "The ID of your event as displayed in the DB Event Offers portal. If your URL "
 "is <code>https://www.veranstaltungsticket-bahn.de/?event=33148&language=de</"
@@ -44,24 +44,24 @@ msgid ""
 "please enter <code>33148</code>."
 msgstr ""
 
-#: pretix_dbevent/forms.py:55
+#: pretix_dbevent/forms.py:59
 msgid "Override default texts"
 msgstr ""
 
-#: pretix_dbevent/forms.py:60
+#: pretix_dbevent/forms.py:64
 msgid "Title"
 msgstr ""
 
-#: pretix_dbevent/forms.py:71
+#: pretix_dbevent/forms.py:75
 msgid "Content"
 msgstr ""
 
-#: pretix_dbevent/forms.py:80
+#: pretix_dbevent/forms.py:89
 #, python-brace-format
 msgid "Available placeholders: {event}, {booking_url}, {faq_url}, {event_id}"
 msgstr ""
 
-#: pretix_dbevent/forms.py:94
+#: pretix_dbevent/forms.py:104
 msgid "Invalid DB Event ID"
 msgstr ""
 
@@ -69,17 +69,17 @@ msgstr ""
 msgid "Display DB Event Offer if this product is purchased"
 msgstr ""
 
-#: pretix_dbevent/signals.py:28
+#: pretix_dbevent/signals.py:27
 #: pretix_dbevent/templates/pretix_dbevent/settings.html:5
 msgid "DB Event Offer"
 msgstr ""
 
-#: pretix_dbevent/signals.py:114
+#: pretix_dbevent/signals.py:125
 msgid "Always a good move: Travel by train to your event"
 msgstr ""
 
-#: pretix_dbevent/signals.py:117
-#, python-format, python-brace-format
+#: pretix_dbevent/signals.py:133
+#, python-brace-format
 msgid ""
 "For *{event}* participants exclusively: Travel comfortable, sustainable and "
 "affordable throughout Germany by train.\n"
@@ -89,7 +89,7 @@ msgid ""
 "- Attractive prices: low entry price from just EUR 16.19\n"
 "- Flexible combination: apply additional BahnCard discount\n"
 "- Sustainability guaranteed: arrival and departure on Deutsche Bahn trains "
-"using 100% renewable power\n"
+"using 100 percent renewable power\n"
 "- Use your time effectively: work or relax on your journey\n"
 "\n"
 "[Book online now]({booking_url}), discover all DB event offers for your "

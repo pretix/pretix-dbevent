@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("pretixbase", "0291_alter_logentry_object_id"),
+        ("pretixbase", "0253_checkin_info"),
     ]
 
     operations = [
